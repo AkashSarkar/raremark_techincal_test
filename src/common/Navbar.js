@@ -33,7 +33,7 @@ const Navbar = () => {
                         {/* <input type="date" style={{ border: "none" }} placeholder="Anytime" /> */}
                         <div className="border-right mr-1" />
                         <div>
-                            <i class="fas fa-user-friends mr-2"></i>
+                            <i className="fas fa-user-friends mr-2"></i>
                             <input type="text" style={{ border: "none" }} placeholder="1 guest" />
                         </div>
 
