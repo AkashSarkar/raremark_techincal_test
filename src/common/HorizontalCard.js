@@ -10,25 +10,25 @@ const styles = {
 const HorizontalCard = ({ image, rating, description, user }) => {
 
     return (
-        <div style={{ maxWidth: "250px" }}>
+        <div style={{ maxWidth: "300px" }}>
             <img
                 src={image.default}
                 style={{
-                    height: "150px", width: "250px",
+                    height: "200px", width: "300px",
                     borderRadius: '3px'
                 }}
                 alt='img'
             />
-            <div className="d-flex flex-row">
-                <i className="fas fa-star" style={{ color: 'green' }}></i>
-                <i className="fas fa-star" style={{ color: 'green' }}></i>
-                <i className="fas fa-star" style={{ color: 'green' }}></i>
-                <i className="fas fa-star" style={{ color: 'green' }}></i>
+            <div className="d-flex flex-row mt-2">
+                <i className="fas fa-star mr-1" style={{ color: 'green' }}></i>
+                <i className="fas fa-star mr-1" style={{ color: 'green' }}></i>
+                <i className="fas fa-star mr-1" style={{ color: 'green' }}></i>
+                <i className="fas fa-star mr-1" style={{ color: 'green' }}></i>
             </div>
-            <div style={{ maxWidth: "200px" }}>
+            <div className='mt-2' style={{ maxWidth: "250px" }}>
                 <p className="text-dark, fs-12"> {truncate(description, 80)}</p>
             </div>
-            <div className="d-flex flex-row">
+            <div className="d-flex flex-row mb-2">
                 <img src={user.img.default} style={styles.avatar} alt="profile" />
                 <div className="ml-3 fs-12">
                     <div className="fw-600">{user.name}</div>

@@ -32,9 +32,13 @@
   box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75);
   border-radius: 4px;
 }
-.active_item{
+.active_item {
   color: forestgreen;
   border-bottom: 3px solid forestgreen;
+}
+.padding-horizontal {
+  padding-left: 20px;
+  padding-right: 20px;
 }
 footer {
   /* background-color:#2b2d2e; */

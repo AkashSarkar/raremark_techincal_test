@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Navbar = () => {
     const { pathname } = useLocation();
-    console.log(pathname)
     const _onFocus = (e) => {
 
         e.currentTarget.type = "date";

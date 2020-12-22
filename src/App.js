@@ -14,7 +14,9 @@ function App() {
   return (
     <Router>
       <Navbar />
+      <div style={{ marginBottom: "30px" }} />
       <MasterRoutes />
+      <div style={{ marginBottom: "100px" }} />
       <Footer />
     </Router>
   );
