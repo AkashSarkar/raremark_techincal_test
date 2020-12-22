@@ -7,36 +7,31 @@ const styles = {
         borderRadius: '15px'
     }
 }
-const HorizontalCard = ({ image, rating, description, user }) => {
+const VerticalCard = ({ image, rating, review, amount, description }) => {
 
     return (
-        <div style={{ maxWidth: "345px" }}>
+        <div style={{ maxWidth: "200px" }}>
             <img
                 src={image.default}
                 style={{
-                    height: "200px", width: "345px",
+                    height: "300px", width: "200px",
                     borderRadius: '3px'
                 }}
                 alt='img'
             />
-            <div className="d-flex flex-row mt-2">
-                <i className="fas fa-star mr-1" style={{ color: 'green' }}></i>
-                <i className="fas fa-star mr-1" style={{ color: 'green' }}></i>
-                <i className="fas fa-star mr-1" style={{ color: 'green' }}></i>
-                <i className="fas fa-star mr-1" style={{ color: 'green' }}></i>
-            </div>
             <div className='mt-2' style={{ maxWidth: "250px" }}>
-                <p className="text-dark, fs-12"> {truncate(description, 80)}</p>
+                <p className="text-dark, fs-12">
+                    <span>${amount} </span> {truncate(description, 80)}</p>
             </div>
-            <div className="d-flex flex-row mb-2">
-                <img src={user.img.default} style={styles.avatar} alt="profile" />
-                <div className="ml-3 fs-12">
-                    <div className="fw-600">{user.name}</div>
-                    <div>{user.location}</div>
-                </div>
+            <div className="d-flex flex-row mt-2 fs-12">
+                <i className="fas fa-star mr-1" style={{ color: 'green' }}></i>
+                <i className="fas fa-star mr-1" style={{ color: 'green' }}></i>
+                <i className="fas fa-star mr-1" style={{ color: 'green' }}></i>
+                <i className="fas fa-star mr-1" style={{ color: 'green' }}></i>
+                <span>{review} reviews</span>
             </div>
         </div>
     )
 }
 
-export default HorizontalCard;
+export default VerticalCard;
