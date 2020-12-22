@@ -1,0 +1,16 @@
+Features:
+- Landing page:
+    - Navbar - 1 hr
+    - Footer -1 hr
+    -home - 2 hrs
+        -cards(3 types)- 1 hrs
+    - API Integration - 2 hrs
+
+-Details page:
+    - property details- 3 hrs
+    - reservation cart -2 hrs
+    - Api Integration - 1 hr
+
+- Search:
+    - design -2 hrs
+    - implementation 2 hrs
