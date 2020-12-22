@@ -1,5 +1,5 @@
 import React from 'react';
-import { truncate } from '../util/StringModificarion'
+import { truncate } from '../util/StringModification'
 const styles = {
     avatar: {
         height: "30px",

@@ -1,12 +1,6 @@
 import React from 'react';
-import { truncate } from '../util/StringModificarion'
-const styles = {
-    avatar: {
-        height: "30px",
-        width: "30px",
-        borderRadius: '15px'
-    }
-}
+import { truncate } from '../util/StringModification'
+
 const VerticalCard = ({ image, rating, review, amount, description }) => {
 
     return (
