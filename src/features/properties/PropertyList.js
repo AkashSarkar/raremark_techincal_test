@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getPlacesThunk } from '../home/HomeSlice';
 import PropertyListItem from './PropertyListItem';
+import usePagination from '../../common/usePagination'
 
 const PropertyList = () => {
     const dispatch = useDispatch();
@@ -14,9 +15,9 @@ const PropertyList = () => {
     const isLoading = useSelector(state => state.home.places.isLoading)
     const {
         currentPage, currentData, next, prev, maxPage, jump
-    } = usePagination(blogPostsList, 5)
+    } = usePagination(placeData, 10)
     const renderList = () => {
-        return placeData.map((item) => (
+        return currentData().map((item) => (
             <div className="pb-4 mt-4 border-bottom">
                 <PropertyListItem
                     username={item.username}
@@ -42,6 +43,17 @@ const PropertyList = () => {
             </div>
         ))
     }
+    const renderPageNumber = () => {
+        const pages = []
+        for (let i = 1; i <= maxPage; i++) {
+            pages.push(
+                <li key={i} className={`page-item ${i === currentPage ? "active" : ''}`}>
+                    <button className="page-link" onClick={() => jump(i)}>{i}</button>
+                </li>
+            )
+        }
+        return pages
+    }
     return (
         <div className="container padding-horizontal">
             { isLoading ? (
@@ -51,7 +63,19 @@ const PropertyList = () => {
                     renderList()
                 )
             }
-
+            <div className="col-md-12 text-center p-5">
+                <div aria-label="Page navigation example">
+                    <ul className="pagination justify-content-center">
+                        <li className={`page-item ${currentPage !== 1 ? "" : "disabled"}`}>
+                            <button className="page-link" tabIndex="-1" onClick={() => prev()}>Previous</button>
+                        </li>
+                        {renderPageNumber()}
+                        <li className={`page-item ${currentPage === maxPage ? "disabled" : ""}`}>
+                            <button className="page-link" onClick={() => next()}>Next</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     )
 };
