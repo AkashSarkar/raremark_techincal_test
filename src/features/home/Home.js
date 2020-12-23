@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { assets } from '../../assets';
 import HorizontalCard from '../../common/HorizontalCard';
+import Search from '../../common/Search';
 import SquareCard from '../../common/SquareCard';
 import VerticalCard from '../../common/VerticalCard';
 import { getPlacesThunk } from './HomeSlice';
@@ -129,7 +130,10 @@ const Home = () => {
     );
     return (
         <div className='container d-flex justify-content-center flex-column'>
-            <div className='padding-horizontal '>
+            <div className='padding-horizontal'>
+                <Search />
+            </div>
+            <div className='padding-horizontal'>
                 <h5>What guests are saying about homes in united Kingdom</h5>
                 <p className="fs-14">
                     <i className="fas fa-star" style={{ color: 'orange' }}></i>
