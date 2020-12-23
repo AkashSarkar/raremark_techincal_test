@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { getPlacesThunk } from '../home/HomeSlice';
 import PropertyListItem from './PropertyListItem';
 import usePagination from '../../common/usePagination'
+import Search from '../../common/Search';
 
 const PropertyList = () => {
     const dispatch = useDispatch();
@@ -56,11 +57,15 @@ const PropertyList = () => {
     }
     return (
         <div className="container padding-horizontal">
+            <Search />
             { isLoading ? (
                 <h1>Loading</h1>
             ) : (
-
-                    renderList()
+                    <div className="mt-4">
+                        {
+                            renderList()
+                        }
+                    </div>
                 )
             }
             <div className="col-md-12 text-center p-5">
