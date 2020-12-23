@@ -8,7 +8,7 @@ const SquareCard = ({ image, name, profession, type, description }) => {
         <div style={{ maxWidth: "200px" }}>
             <div style={{ position: 'relative' }}>
                 <img
-                    src={image.default}
+                    src={image}
                     style={{
                         height: "200px", width: "200px",
                         borderRadius: '3px'

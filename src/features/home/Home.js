@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { assets } from '../../assets';
 import HorizontalCard from '../../common/HorizontalCard';
 import SquareCard from '../../common/SquareCard';
 import VerticalCard from '../../common/VerticalCard';
+import { getPlacesThunk } from './HomeSlice';
 
 const Home = () => {
-
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getPlacesThunk())
+    }, [])
+    const placeData = useSelector(state => state.home.places.data) || []
+    console.log(placeData);
     const homesData = [
         {
             id: 1,
@@ -81,58 +88,22 @@ const Home = () => {
             review: 84
         }
     ]
-    const placesData = [
-        {
-            id: 1,
-            image: assets.image1,
-            name: "Chanda Stacker",
-            profession: "Food Blogger",
-            type: "HandBag Shopping"
-        },
-        {
-            id: 2,
-            image: assets.image2,
-            name: "Edgar Agbayani",
-            profession: "Chef",
-            type: "Where to see comedy"
-        },
-        {
-            id: 3,
-            image: assets.image3,
-            name: "Edgar Agbayani",
-            profession: "Chef",
-            type: "Where to see comedy"
-        },
-        {
-            id: 4,
-            image: assets.image4,
-            name: "Carlos Muela",
-            profession: "Vintage decor",
-            type: "Where to see comedy"
-        },
-        {
-            id: 5,
-            image: assets.image3,
-            name: "Carlos Muela",
-            profession: "Wine Bars",
-            type: "Where to see comedy"
-        }
-    ]
+
     const renderHorizontalCard = () => (
         homesData.slice(0, 3).map((item) => (
-            <div className="mr-3" key={item.id}>
+            <Link to='' className="text-dark mr-3" key={item.id}>
                 <HorizontalCard
                     image={item.image}
                     description={item.description}
                     user={item.user}
                 />
-            </div>
+            </Link>
         ))
     );
 
     const renderVerticalCard = () => (
-        bookingData.slice(0, 6).map((item) => (
-            <div className="mr-3" key={item.id}>
+        bookingData.slice(0, 5).map((item) => (
+            <Link to='' className="text-dark mr-3" key={item.id}>
                 <VerticalCard
                     image={item.image}
                     description={item.description}
@@ -140,20 +111,20 @@ const Home = () => {
                     amount={item.amount}
                     review={item.review}
                 />
-            </div>
+            </Link>
         ))
     );
 
     const renderSquareCard = () => (
-        placesData.slice(0, 6).map((item) => (
-            <div className="mr-3" key={item.id}>
+        placeData.slice(0, 5).map((item) => (
+            <Link to='' className="text-dark mr-3" key={item.id}>
                 <SquareCard
                     image={item.image}
-                    name={item.name}
+                    name={item.username}
                     profession={item.profession}
                     type={item.type}
                 />
-            </div>
+            </Link>
         ))
     );
     return (
@@ -181,8 +152,7 @@ const Home = () => {
                 <div className="d-flex flex-row justify-content-between">
                     <h5>Places in London</h5>
                     <div>
-                        <Link to="" className="text-dark fs-12 mr-1" >See all <i class="fas fa-chevron-right fs-12" ></i></Link>
-
+                        <Link to="/properties" className="text-dark fs-12 mr-1" >See all <i class="fas fa-chevron-right fs-12" ></i></Link>
                     </div>
                 </div>
                 <div className='d-flex flex-row mt-4'>
