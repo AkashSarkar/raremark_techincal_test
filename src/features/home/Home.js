@@ -117,7 +117,7 @@ const Home = () => {
 
     const renderSquareCard = () => (
         placeData.slice(0, 5).map((item) => (
-            <Link to='' className="text-dark mr-3" key={item.id}>
+            <Link to={`/property-details/${item.id}`} className="text-dark mr-3" key={item.id}>
                 <SquareCard
                     image={item.image}
                     name={item.username}

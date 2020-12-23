@@ -18,7 +18,7 @@ const PropertyList = () => {
     } = usePagination(placeData, 10)
     const renderList = () => {
         return currentData().map((item) => (
-            <div className="pb-4 mt-4 border-bottom">
+            <Link to={`/property-details/${item.id}`} className="pb-4 text-dark mt-4 border-bottom">
                 <PropertyListItem
                     username={item.username}
                     image={item.image}
@@ -40,7 +40,7 @@ const PropertyList = () => {
                     guests={item.guests}
                     facility={item.facility}
                 />
-            </div>
+            </Link>
         ))
     }
     const renderPageNumber = () => {

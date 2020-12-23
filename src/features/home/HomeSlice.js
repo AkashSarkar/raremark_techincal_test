@@ -9,7 +9,8 @@ export const HomeSlice = createSlice({
             success: false,
             error: false,
             errors: '',
-            data: []
+            data: [],
+            place: {}
         }
     },
     reducers: {
@@ -17,6 +18,12 @@ export const HomeSlice = createSlice({
             state.places = {
                 ...state.places,
                 data: action.payload
+            }
+        },
+        getPlace: (state, action) => {
+            state.places = {
+                ...state.places,
+                place: action.payload
             }
         },
         placesRequest: (state) => {
@@ -46,7 +53,7 @@ export const HomeSlice = createSlice({
 });
 
 export const {
-    getPlaces, placesRequest, placesSuccess, placesError
+    getPlaces, getPlace, placesRequest, placesSuccess, placesError
 } = HomeSlice.actions;
 
 export const getPlacesThunk = () => dispatch => {
@@ -57,6 +64,26 @@ export const getPlacesThunk = () => dispatch => {
     }).catch((e) => {
         console.log("e.error")
         dispatch(placesError(e.error))
+    })
+}
+
+export const getPlaceThunk = (id) => dispatch => {
+    dispatch(placesRequest())
+    PUBLIC_API.get(`/places/${id}`).then((res) => {
+        dispatch(getPlace(res.data))
+        dispatch(placesSuccess())
+    }).catch((e) => {
+        console.log("e.error")
+        dispatch(placesError(e.error))
+    })
+}
+
+export const postPlaceThunk = (postData, history) => dispatch => {
+    PUBLIC_API.post(`/places`, postData).then((res) => {
+        dispatch(getPlacesThunk())
+        history.push('/properties')
+    }).catch((e) => {
+        console.log("e.error")
     })
 }
 export default HomeSlice.reducer;

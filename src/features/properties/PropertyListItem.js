@@ -40,7 +40,8 @@ const PropertyListItem = ({
                     <div className="text-secondary">{room_type}</div>
                     <div>
                         <i className="fas fa-star mr-1" style={{ color: 'red' }} />
-                        {rating} <span className="text-secondary">({review})</span></div>
+                        {rating} <span className="text-secondary">({review})</span>
+                    </div>
                 </div>
                 <div className="mt-2">{title}</div>
                 <div className="d-flex flex-row text-secondary mt-2">
